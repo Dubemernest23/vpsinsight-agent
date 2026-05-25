@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/Dubemernest23/vpsinsight-agent#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-rate-limit": "^8.5.2",
+    "pm2": "^7.0.1",
+    "resend": "^6.12.3",
     "systeminformation": "^5.31.6"
   },
   "devDependencies": {
