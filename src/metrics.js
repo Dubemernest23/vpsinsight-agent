@@ -10,7 +10,6 @@ const getMetrics = async () => {
     si.osInfo()
   ]);
   const time = si.time();
-//   console.log(`server: ${os.hostname}, cpu usage: ${load.currentLoad.toFixed(2)}%, memory usage: ${(mem.used / mem.total * 100).toFixed(2)}%`);
 
   return {
     server: {
@@ -27,9 +26,9 @@ const getMetrics = async () => {
     },
     memory: {
       total: mem.total,
-      used: mem.used,
-      free: mem.free,
-      percentage: parseFloat(((mem.used / mem.total) * 100).toFixed(2))
+      used: mem.total - mem.available,
+      free: mem.available,
+      percentage: parseFloat((((mem.total - mem.available) / mem.total) * 100).toFixed(2))
     },
     disk: disk.map((d) => ({
       mount: d.mount,
@@ -40,8 +39,8 @@ const getMetrics = async () => {
     })),
     network: {
       interface: net[0].iface,
-      rx_sec: net[0].rx_sec,
-      tx_sec: net[0].tx_sec,
+      rx_sec: net[0].rx_sec != null ? parseFloat(net[0].rx_sec.toFixed(2)) : null,
+      tx_sec: net[0].tx_sec != null ? parseFloat(net[0].tx_sec.toFixed(2)) : null,
       rx_total: net[0].rx_bytes,
       tx_total: net[0].tx_bytes
     },
