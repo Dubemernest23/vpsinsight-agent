@@ -1,0 +1,31 @@
+{
+  "name": "vpsinsight-agent",
+  "version": "1.0.0",
+  "description": "Lightweight, self-hosted VPS monitoring agent. Exposes real-time CPU, RAM, disk, network, and process stats via a secured REST endpoint.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dubemernest23/vpsinsight-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Dubemernest23/vpsinsight-agent/issues"
+  },
+  "homepage": "https://github.com/Dubemernest23/vpsinsight-agent#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "systeminformation": "^5.31.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
